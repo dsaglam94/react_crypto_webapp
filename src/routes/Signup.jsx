@@ -21,11 +21,11 @@ const Signup = () => {
         return;
       } else {
         await signUp(email, password);
-        navigate("/account");
+        navigate("/");
       }
-    } catch (error) {
-      setError(error.message);
-      console.log(error.message);
+    } catch (e) {
+      setError(e.message);
+      console.log(e.message);
     }
   };
 
