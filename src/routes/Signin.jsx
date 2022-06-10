@@ -28,6 +28,9 @@ const Signin = () => {
     <div>
       <div className="max-w-[500px] mx-auto min-h-[600px] px-10 py-20 mt-10 border border-secondary rounded-2xl shadow-xl">
         <h1 className="text-2xl font-bold">Sign In</h1>
+        {error ? (
+          <p className="bg-red-300 p-3 my-2 text-xs md:text-sm">{error}</p>
+        ) : null}
         <form onSubmit={handleSubmit}>
           <div className="my-4">
             <label htmlFor="email_input">Email</label>

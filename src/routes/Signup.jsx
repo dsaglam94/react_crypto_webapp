@@ -7,14 +7,12 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
 
   const navigate = useNavigate();
   const { signUp } = UserAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
     try {
       if (password !== confirmPassword) {
         alert("Passwords must match!");
@@ -24,7 +22,6 @@ const Signup = () => {
         navigate("/");
       }
     } catch (e) {
-      setError(e.message);
       console.log(e.message);
     }
   };
@@ -33,7 +30,6 @@ const Signup = () => {
     <div>
       <div className="max-w-[500px] mx-auto min-h-[600px] px-10 py-20 mt-10 border border-secondary rounded-2xl shadow-xl">
         <h1 className="text-2xl font-bold">Sign Up</h1>
-        {error ? <p className="bg-red-300 p-3 my-2">{error}</p> : null}
         <form onSubmit={handleSubmit}>
           <div className="my-4">
             <label htmlFor="email_input">Email</label>
